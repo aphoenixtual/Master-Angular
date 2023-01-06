@@ -1,14 +1,6 @@
 <h1 align="center">
-<img width="40" valign="bottom" src="https://ultimatecourses.com/static/icons/angular.svg">
 Angular Basics v14: Starter Project
 </h1>
----
-
-<div align="center">
-<a href="https://ultimatecourses.com/courses/angular" target="_blank"><img width="100%" src="https://ultimatecourses.com/static/banners/ultimate-angular-leader.svg"></a>
-</div>
-
----
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli).
 
