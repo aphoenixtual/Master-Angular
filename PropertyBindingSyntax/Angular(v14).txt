@@ -7,9 +7,9 @@ RxJS : Reactive extensions for Javascript
 
 Angular CLI : Command line interface
 
-Lec : 4
+Lec : 04-understand-angular-bootstrapping
 
-BrowserModule : this is telling the angualr complier that we want to use the web platform
+BrowserModule : this is telling the angular complier that we want to use the web platform
 
 export : it is allowing us to reference this AppModule in another file
 
@@ -26,10 +26,13 @@ export class AppModule {}
 
 here Angular is going to bind this further information to this class (AppModule)
 
-selector : this tells angualr what's the element name is going to be coz angualr is all about creating your own custom components and
+selector : this tells angular what's the element name is going to be coz angular is all about creating your own custom components and
 giving them a unique name
 
 Lec : 05-interpolation-and-expressions
+
+{{ }} this curly brackets interpolation syntax is essentially sugar syntax 
+this is a nicer way to display values by not binding to a property directly
 
 When our component get mounted our ngOnInit() is going to get called and it does get called after our constructor is actually
 instantiated and this is the hook where then Angular invokes
@@ -43,3 +46,26 @@ instantiated and this is the hook where then Angular invokes
 An expressions is a simple way the way we can pass in something that we want to check 
 
 ? : //This is inline if statement 
+
+Lec : 06-property-binding-syntax
+
+In Browser console inspect there are many js property by 
+
+document.body : it return us a reference to a document body 
+document.body.innerHTML : it returns all of the source code that angular generating 
+
+This is important coz this is the first step for One Way Data Flow 
+
+document.body.innerText : this is calling a js getter that gives us a value from logs out
+
+When we want to display values in a form or in a input or disabled a particular button then we need property binding 
+it's important to understand property binding coz of that our components communicate 
+when we talk about property binding we only need to think about One Way Data Flow
+
+
+<input value="message"> this is plain html string
+<input [value]="message"> here we're telling angular we need to bind a variable by providing square brackets
+This is the property binding syntax along side our custom components
+
+if we don't provide the square brackets then our variable message inside our component is never treated as some live data in Angular
+

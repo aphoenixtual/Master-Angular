@@ -3,10 +3,10 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-root',
   template: ` <div class="app">{{message}}
-    {{ message === 'Hey Aayush'}}
-    {{ message.length }}
-    {{ message.length < 12 }}
-    {{ message.length ? message : 'Amazon prime special' }}
+    <h1>{{ message.length ? message : 'Amazon prime special' }}</h1>
+    <h1 [innerText]="message.length ? message : 'Amazon prime special'"></h1>
+    <input value="123">
+    <input [value]="message">
   </div> `,
   styles: [
     `
@@ -24,6 +24,6 @@ export class AppComponent implements OnInit {
 
   constructor() {}
   ngOnInit() {
-    this.message = ''
+    this.message = 'Heyyy Aayush'
   }
 }
