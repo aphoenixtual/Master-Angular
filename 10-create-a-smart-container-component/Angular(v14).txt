@@ -104,3 +104,10 @@ Lec : 09-create-a-child-feature-module
 Command to create module
 ng generate module admin --module=app.module
 
+Lec : 10-create-a-smart-container-component
+Command to create component with path 
+ng generate component admin/containers/donut-list --dry-run
+
+--dry-run : this actually allows us to check or test out our commands with actually commiting them to our project and can undo them 
+if they're not quiet we're looking for
+
