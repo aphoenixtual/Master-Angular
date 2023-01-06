@@ -39,4 +39,7 @@ instantiated and this is the hook where then Angular invokes
  going to available
 
  Interpolation allows us to evaluate variable,  a piece of data, any kinda value and print out for the user
+ 
+An expressions is a simple way the way we can pass in something that we want to check 
 
+? : //This is inline if statement 
