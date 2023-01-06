@@ -37,7 +37,7 @@ export class AppComponent implements OnInit {
     const { value } = event.target as HTMLInputElement; // This is type casting in typescript
     // here we can obtain our value by referencing our event.target here we're using some destructuring so we can pull our property out
     console.log(value)
-    this.message = value;
+    this.message = value; //this is mutating our initial state value 
     this.newMessage = value;
   }
 }
