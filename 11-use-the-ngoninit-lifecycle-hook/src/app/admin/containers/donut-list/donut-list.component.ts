@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
         </div>
 
         <div>
-            {{ donut | json }}
+            {{ donut | json }}  <!--Json pipe inline one of the Angular way to implement pipe-->
         </div>
     </div>
   `,

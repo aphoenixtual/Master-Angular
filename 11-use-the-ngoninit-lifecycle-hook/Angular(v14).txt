@@ -111,3 +111,11 @@ ng generate component admin/containers/donut-list --dry-run
 --dry-run : this actually allows us to check or test out our commands with actually commiting them to our project and can undo them 
 if they're not quiet we're looking for
 
+Lec : 11-use-the-ngoninit-lifecycle-hook
+
+One of the way to declare static data in an array by this : donuts: [] = []; //hardcode
+
+{{ donut | json }}  <!-- Json pipe inline Angular way -->
+
+This is how we do in JS
+this.donut = JSON.stringify(this.donuts[0]) 
