@@ -1,0 +1,129 @@
+Lec : 1
+
+TypeScript : which is a project created and managed by microsoft to bring static type benefits to js code,
+Basically it is a Javascript with few superpowers
+
+RxJS : Reactive extensions for Javascript
+
+Angular CLI : Command line interface
+
+Lec : 04-understand-angular-bootstrapping
+
+BrowserModule : this is telling the angular complier that we want to use the web platform
+
+export : it is allowing us to reference this AppModule in another file
+
+This is called the TypeScript decorator, A decorator simply adds metadata or can say further information to a particular class
+or property such as this
+
+@NgModule({
+  declarations: [AppComponent],
+  imports: [BrowserModule],
+  bootstrap: [AppComponent],
+})
+
+export class AppModule {}
+
+here Angular is going to bind this further information to this class (AppModule)
+
+selector : this tells angular what's the element name is going to be coz angular is all about creating your own custom components and
+giving them a unique name
+
+Lec : 05-interpolation-and-expressions
+
+{{ }} this curly brackets interpolation syntax is essentially sugar syntax 
+this is a nicer way to display values by not binding to a property directly
+
+When our component get mounted our ngOnInit() is going to get called and it does get called after our constructor is actually
+instantiated and this is the hook where then Angular invokes
+
+ message!: string;
+ coz we're not using a constructor we want to use exclamation mark this tells TypeScript I'm later assign the message and is definitely
+ going to available
+
+ Interpolation allows us to evaluate variable,  a piece of data, any kinda value and print out for the user
+ 
+An expressions is a simple way the way we can pass in something that we want to check 
+
+? : //This is inline if statement 
+
+Lec : 06-property-binding-syntax
+
+In Browser console inspect there are many js property by 
+
+document.body : it return us a reference to a document body 
+document.body.innerHTML : it returns all of the source code that angular generating 
+
+This is important coz this is the first step for One Way Data Flow 
+
+document.body.innerText : this is calling a js getter that gives us a value from logs out
+
+When we want to display values in a form or in a input or disabled a particular button then we need property binding 
+it's important to understand property binding coz of that our components communicate 
+when we talk about property binding we only need to think about One Way Data Flow
+
+
+<input value="message"> this is plain html string
+<input [value]="message"> here we're telling angular we need to bind a variable by providing square brackets
+This is the property binding syntax along side our custom components
+
+if we don't provide the square brackets then our variable message inside our component is never treated as some live data in Angular
+
+Lec : 07-event-binding-syntax
+
+Till now we've learnt how to set data by one way binding syntax to a property
+
+Now we'll learn how to get data such as user action eg by click of a button like anything that user can perform by UI 
+
+How to bind an event in the same way to a plain JS like element.addeventlistener passing something like click, submit, input or change 
+we can do exact same in Angular 
+much like we've bind a property we want talk to we also bind the event we want to talk to
+
+$event : It is a object (by dollar $ it is just a angular way of asking for a object )
+
+console.log(event.target) : this is going to give the element itself
+
+The way to implement One-Way-Data-Flow :
+We take data of message then we want to change it so we then grap the new change event we then set it to a new variable (newMessage)
+here we're just mutating the values as soon as we're given them by take the copy of those values and reflect those changes 
+
+One of the benefits of not mutating the original values we could've a button such as reset we could click that button and can reset the 
+text back to its original state 
+
+Lec : 08-template-reference-variables
+
+It allows us to grab or holdup an element or a component and access some further information about it 
+#ref : template ref gives us an access to the particular dom element essentially exports the property so 
+we can access anywhere in our template using the # variable
+
+here we're not dealing with dollar event anymore 
+So essentially template-reference-variables differs where you want to use it here we're using template-reference-variables for an
+input element and we get that root DOM element back
+
+Lec : 09-create-a-child-feature-module
+Command to create module
+ng generate module admin --module=app.module
+
+Lec : 10-create-a-smart-container-component
+Command to create component with path 
+ng generate component admin/containers/donut-list --dry-run
+
+--dry-run : this actually allows us to check or test out our commands with actually commiting them to our project and can undo them 
+if they're not quiet we're looking for
+
+Lec : 11-use-the-ngoninit-lifecycle-hook
+
+One of the way to declare static data in an array by this : donuts: [] = []; //hardcode
+
+{{ donut | json }}  <!-- Json pipe inline Angular way -->
+
+This is how we do in JS
+this.donut = JSON.stringify(this.donuts[0]) 
+
+Lec : 12-type-definitions-with-interfaces
+
+Command to create interface with path :
+ng generate interface admin/models/Donut model
+
+An interface is an blueprint of a particular object or data structure or anything we want to type in TypeScript 
+we can then bind it to a particular property 
