@@ -221,4 +221,6 @@ lec : 24-use-ng-container-for-virtual-elements
 
 lec : 25-use-the-ng-if-else-and-then-syntax
 
+lec : 26-ng-if-syntax-with-ng-template
+
 
