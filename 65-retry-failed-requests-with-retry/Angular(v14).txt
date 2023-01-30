@@ -324,7 +324,7 @@ next : success callback
 
 lec : 64-error-handing-with-catch-error-and-throw-error
 
-lec : 65-retry-failed-requests-with-retry and 64-error-handing-with-catch-error-and-throw-error
+lec : 65-retry-failed-requests-with-retry and 66-use-retry-when-to-delay-retries
 
 retry() and retryWhen()
 
