@@ -1,0 +1,364 @@
+Lec : 1
+
+TypeScript : which is a project created and managed by microsoft to bring static type benefits to js code,
+Basically it is a Javascript with few superpowers
+
+RxJS : Reactive extensions for Javascript
+
+Angular CLI : Command line interface
+
+Lec : 04-understand-angular-bootstrapping
+
+BrowserModule : this is telling the angular complier that we want to use the web platform
+
+export : it is allowing us to reference this AppModule in another file
+
+This is called the TypeScript decorator, A decorator simply adds metadata or can say further information to a particular class
+or property such as this
+
+@NgModule({
+  declarations: [AppComponent],
+  imports: [BrowserModule],
+  bootstrap: [AppComponent],
+})
+
+export class AppModule {}
+
+here Angular is going to bind this further information to this class (AppModule)
+
+selector : this tells angular what's the element name is going to be coz angular is all about creating your own custom components and
+giving them a unique name
+
+Lec : 05-interpolation-and-expressions
+
+{{ }} this curly brackets interpolation syntax is essentially sugar syntax 
+this is a nicer way to display values by not binding to a property directly
+
+When our component get mounted our ngOnInit() is going to get called and it does get called after our constructor is actually
+instantiated and this is the hook where then Angular invokes
+
+ message!: string;
+ coz we're not using a constructor we want to use exclamation mark this tells TypeScript I'm later assign the message and is definitely
+ going to available
+
+ Interpolation allows us to evaluate variable,  a piece of data, any kinda value and print out for the user
+ 
+An expressions is a simple way the way we can pass in something that we want to check 
+
+? : //This is inline if statement 
+
+Lec : 06-property-binding-syntax
+
+In Browser console inspect there are many js property by 
+
+document.body : it return us a reference to a document body 
+document.body.innerHTML : it returns all of the source code that angular generating 
+
+This is important coz this is the first step for One Way Data Flow 
+
+document.body.innerText : this is calling a js getter that gives us a value from logs out
+
+When we want to display values in a form or in a input or disabled a particular button then we need property binding 
+it's important to understand property binding coz of that our components communicate 
+when we talk about property binding we only need to think about One Way Data Flow
+
+
+<input value="message"> this is plain html string
+<input [value]="message"> here we're telling angular we need to bind a variable by providing square brackets
+This is the property binding syntax along side our custom components
+
+if we don't provide the square brackets then our variable message inside our component is never treated as some live data in Angular
+
+Lec : 07-event-binding-syntax
+
+Till now we've learnt how to set data by one way binding syntax to a property
+
+Now we'll learn how to get data such as user action eg by click of a button like anything that user can perform by UI 
+
+How to bind an event in the same way to a plain JS like element.addeventlistener passing something like click, submit, input or change 
+we can do exact same in Angular 
+much like we've bind a property we want talk to we also bind the event we want to talk to
+
+$event : It is a object (by dollar $ it is just a angular way of asking for a object )
+
+console.log(event.target) : this is going to give the element itself
+
+The way to implement One-Way-Data-Flow :
+We take data of message then we want to change it so we then grap the new change event we then set it to a new variable (newMessage)
+here we're just mutating the values as soon as we're given them by take the copy of those values and reflect those changes 
+
+One of the benefits of not mutating the original values we could've a button such as reset we could click that button and can reset the 
+text back to its original state 
+
+Lec : 08-template-reference-variables
+
+It allows us to grab or holdup an element or a component and access some further information about it 
+#ref : template ref gives us an access to the particular dom element essentially exports the property so 
+we can access anywhere in our template using the # variable
+
+here we're not dealing with dollar event anymore 
+So essentially template-reference-variables differs where you want to use it here we're using template-reference-variables for an
+input element and we get that root DOM element back
+
+Lec : 09-create-a-child-feature-module
+Command to create module
+ng generate module admin --module=app.module
+
+Lec : 10-create-a-smart-container-component
+Command to create component with path 
+ng generate component admin/containers/donut-list --dry-run
+
+--dry-run : this actually allows us to check or test out our commands with actually commiting them to our project and can undo them 
+if they're not quiet we're looking for
+
+Lec : 11-use-the-ngoninit-lifecycle-hook
+
+One of the way to declare static data in an array by this : donuts: [] = []; //hardcode
+
+{{ donut | json }}  <!-- Json pipe inline Angular way -->
+
+This is how we do in JS
+this.donut = JSON.stringify(this.donuts[0]) 
+
+Lec : 12-type-definitions-with-interfaces
+
+Command to create interface with path :
+ng generate interface admin/models/Donut model
+
+An interface is an blueprint of a particular object or data structure or anything we want to type in TypeScript 
+we can then bind it to a particular property 
+
+Lec : 13-create-and-render-a-dumb-component
+
+Lec : 14-pass-state-to-dumb-components-via-input
+
+@Input() : this TypeScript decorator is essentially sprinkling some angular magic on top this Donut property to tell angular it is 
+expecting some data to be bound from parent whereever this is going to be used this donut property needs to be called the same thing in 
+the DonutCardComponent
+
+<app-donut-card [donut]="donuts[1]"></app-donut-card>
+we're taking the data from ngOnInit we've our donut card which is duplicate three times here however it is hardcoded 
+there is far more better angular approch then that 
+
+we've learnt how to componentise our data we've broken down into a donut card component
+with the help of square brackets we've bind the data if we don't use square brackets remember we're binding a plain string
+
+
+lec : 15-scoped-styles-in-components
+
+here angular is using style tag instead of css file 
+we can also use stylesUrls: [] instead of styles: [] if we want to deal with seperate css styling in own file
+
+lec : 16-style-a-host-element
+
+How do we style component without having to write the styles in parent component each time ?
+Ans: By using :host selector
+
+lec : 17-view-encapsulation-shadow-dom-and-emulated
+
+ViewEncapsulation.Emulated
+Using the Emulated property gives us emulated Shadow DOM/encapsulation which is the default behaviour for Angular Components. 
+Even though it’s a default, we’ll add it to a live example anyway to see what happens.
+Let’s import ViewEncapsulation from the Angular core and set the encapsulation property:
+
+What does this mean?
+It means that CSS we write globally will inherit, however styles defined using the same class inside the Component will be 
+locally scoped to that Component only.
+
+ViewEncapsulation.Native
+It means that CSS we write globally will not inherit, however styles defined using the same class inside the Component will 
+be locally scoped to that Component only, which is exactly what’s expected with Shadow DOM.
+
+ViewEncapsulation.None
+It means that CSS we write globally will inherit, however styles defined using the same class inside the Component will 
+override existing styling.
+
+Web Component footsteps
+Angular moves even closer to the Web Components spec through the use of the :host {} selector, both with Native or Emulated styles.
+ A quick example of using the :host {} selector:
+
+Notice how the red background now spans the full element using the :host selector. Now the important thing to remember is the :host selector targets the declared element, not any of the Component’s children (such as the template).
+
+What does this mean?
+It means we can use the :host selector to style the declared element, in this case the :host is the same element as Angular annotated above in the ViewEncapsulation.Emulated overview as ``. Note the _nghost-* attribute, in Native 
+mode this attribute is removed and we use native Shadow DOM, in which case just <my-app> refers to the host element and therefore is targeted by the :host {} selector.
+
+
+
+lec : 18-set-inline-styles-with-style-bindings
+
+lec : 19-complex-inline-styles-with-ng-style
+
+lec : 20-set-classes-with-class-bindings
+
+lec : 21-complex-classes-with-ng-class
+
+lec : 22-use-a-pipe-to-format-currency
+
+What are Pipes in Angular?
+Before we get started, if you’re new to Angular and the concept of Pipes, let’s demonstrate what a Pipe is before 
+we move on to showing a Custom Pipe.
+
+Angular has a few built-in Pipes that ship with the framework’s CommonModule, allowing us to make use of them in any module 
+we’re writing.
+
+Here are a few usual suspects we could encounter with Angular’s built-in Pipes:
+
+DatePipe (for parsing Date objects)
+UpperCasePipe (for uppercase-ing Strings)
+LowerCasePipe (for lowercase-ing Strings)
+CurrencyPipe (for formatting currencies)
+AsyncPipe (for unwrapping asynchronous values, such as Observables!)
+You can think of Pipes in Angular just like you would a function. A function can take parameters and return us something new - 
+and that’s solely what Pipes do! We could pass in a valid Date and be given back a String value that’s nicely formatted for the UI. 
+And here, the word UI is key as Pipes are typically for transforming data between our Model and View (the UI)!
+
+That’s the essence of a Pipe!
+
+lec : 23-use-ng-if-for-conditional-rendering
+
+lec : 24-use-ng-container-for-virtual-elements
+
+lec : 25-use-the-ng-if-else-and-then-syntax
+
+lec : 26-ng-if-syntax-with-ng-template
+
+lec : 27-ng-for-and-iterating-collections
+
+lec : 28-improve-ng-for-performance-with-trackby
+
+lec : 29-access-ng-for-index-odd-even-variables
+
+lec : 30-advanced-ng-for-syntax-with-ng-template
+
+lec : 31-use-ng-switch-for-case-rendering
+
+lec : 32-advanced-ng-switch-syntax-with-ng-template
+
+lec : 33-create-a-form-container-and-dumb-component
+
+npx ng generate component admin/containers/donut-single
+npx ng generate component admin/components/donut-form
+
+lec : 34-use-ng-form-with-a-template-ref-variable
+
+lec : 35-input-binding-with-ng-model
+
+lec : 36-radio-button-binding-with-ng-model
+
+lec : 37-select-and-option-rendering-and-binding
+
+lec : 38-textarea-binding-with-ng-model
+
+lec : 39-add-validation-constraints-and-form-status
+
+lec : 40-ng-model-template-refs-and-validation-states
+
+lec : 41-show-error-messages-on-validation-change
+
+lec : 42-style-invalid-input-fields-globally
+
+lec : 43-form-submit-with-ng-submit
+
+lec : 44-disable-submit-and-safety-check-submissions
+
+lec : 45-trigger-validation-messages-on-submit
+
+lec : 46-control-ng-model-writes-with-ng-model-options
+
+lec : 47-trigger-a-form-state-and-validation-reset
+
+reset() vs resetForm()
+
+lec : 48-show-visual-feedback-on-form-submission
+
+lec : 49-emit-form-payload-to-smart-container-via-output
+
+$event
+
+lec : 50-one-way-data-binding-to-ng-model
+
+lec : 51-create-an-injectable-service
+
+npx ng generate service admin/services/donut
+
+lec : 52-share-state-in-components-via-services
+
+Use constructor for wiring things up and use ngOnInit for initialization or data fetching
+
+lec : 53-class-methods-as-state-selectors
+
+lec : 54-immutable-state-creation
+
+lec : 55-immutable-state-updates
+
+lec : 56-immutable-state-deletions
+
+lec : 57-configure-and-proxy-a-local-http-server
+Shift + Alt + F = code formatting
+npm run db : From now onwards it is necessary to run db 
+http://localhost:3000
+
+// Both are same
+http://localhost:3000/donuts
+http://localhost:4200/api/donuts
+
+lec : 58-read-data-with-http-client-get
+Asynchronous vs synchronous operations
+Observables 
+.subscribe : give it the data when ready
+
+lec : 60-branch-off-an-observable-to-access-state
+
+tap, of, map 
+
+lec : 61-create-data-with-http-client-post
+
+send the data to the db
+
+lec : 62-update-data-with-http-client-put
+
+lec : 63-delete-data-with-http-client-delete
+
+next : success callback
+
+lec : 64-error-handing-with-catch-error-and-throw-error
+
+lec : 65-retry-failed-requests-with-retry and 66-use-retry-when-to-delay-retries
+
+retry() and retryWhen()
+
+
+lec : 67-set-http-headers-and-request-options
+
+lec : 68-root-module-routes-with-for-root
+
+lec : 69-create-nested-child-routes
+
+lec : 70-redirect-routes-to-new-paths
+
+lec : 71-handle-404-not-found-routes-with-wildcards
+
+lec : 72-lazy-loading-feature-modules
+
+lec : 73-declarative-navigation-with-routerlink-directives
+
+lec : 74-dynamic-route-params-and-activated-route
+
+lec : 75-pass-custom-data-to-routed-components
+
+lec : 76-programmatic-navigation-with-router-navigate
+
+----------------------------------------------Application Completed----------------------------------------------------------------------------------
+
+lec : 77-the-idea-behind-standalone-angular
+
+npx ng g c --standalone testing
+
+lec : 78-bootstrap-a-standalone-component-instead-of-ngmodule
+
+standalone
+
+lec : 79-providing-a-route-config-via-import-providers-from
+
+
