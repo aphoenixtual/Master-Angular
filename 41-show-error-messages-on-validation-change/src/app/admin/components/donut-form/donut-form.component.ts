@@ -89,7 +89,7 @@ import { Component, OnInit } from '@angular/core';
 export class DonutFormComponent implements OnInit {
 
     icons: string[] = [
-        'caramel-swril',
+        'caramel-swirl',
         'glazed-fudge',
         'just-chocolate',
         'sour-supreme',

@@ -8,7 +8,7 @@ import { Donut } from '../../models/donut.model';
     <form class="donut-form" #form="ngForm" *ngIf="donut; else loading">
         <label>
             <span>Name</span>
-            <input type="text" name="name" class="input" required minlength="5" [ngModel]="donut?.name" [ngModelOptions]="{ updateOn: 'blur' }" #name="ngModel" />
+            <input type="text" name="name" class="input" required minlength="5" [ngModel]="donut.name" [ngModelOptions]="{ updateOn: 'blur' }" #name="ngModel" />
             <ng-container *ngIf="name.invalid && name.touched">
                 <div class="donut-form-error" *ngIf="name.errors?.minlength">Minimum length of a name is 5!</div>
                 <div class="donut-form-error" *ngIf="name.errors?.required">Name is required.</div>
@@ -77,11 +77,11 @@ import { Donut } from '../../models/donut.model';
             Create
         </button>
 
-        <button type="button" class="btn btn--green" *ngIf="!isEdit" [disabled]="form.untouched" (click)="handleUpdate(form)">
+        <button type="button" class="btn btn--green" *ngIf="isEdit" [disabled]="form.untouched" (click)="handleUpdate(form)">
             Update
         </button>
 
-        <button type="button" class="btn btn--green" *ngIf="!isEdit" (click)="handleDelete()">
+        <button type="button" class="btn btn--green" *ngIf="isEdit" (click)="handleDelete()">
             Delete
         </button>
 
@@ -139,7 +139,7 @@ export class DonutFormComponent {
     @Output() delete = new EventEmitter<Donut>();
 
     icons: string[] = [
-        'caramel-swril',
+        'caramel-swirl',
         'glazed-fudge',
         'just-chocolate',
         'sour-supreme',

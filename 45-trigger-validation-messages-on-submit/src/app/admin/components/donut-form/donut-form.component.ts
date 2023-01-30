@@ -105,7 +105,7 @@ import { NgForm } from '@angular/forms';
 export class DonutFormComponent {
 
     icons: string[] = [
-        'caramel-swril',
+        'caramel-swirl',
         'glazed-fudge',
         'just-chocolate',
         'sour-supreme',

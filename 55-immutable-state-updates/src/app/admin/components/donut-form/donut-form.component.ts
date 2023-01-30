@@ -130,7 +130,7 @@ export class DonutFormComponent {
     @Output() update = new EventEmitter<Donut>();
 
     icons: string[] = [
-        'caramel-swril',
+        'caramel-swirl',
         'glazed-fudge',
         'just-chocolate',
         'sour-supreme',

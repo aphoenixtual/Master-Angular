@@ -80,11 +80,11 @@ import { Donut } from '../../models/donut.model';
             Create
         </button>
 
-        <button type="button" class="btn btn--green" *ngIf="!isEdit" [disabled]="form.untouched" (click)="handleUpdate(form)">
+        <button type="button" class="btn btn--green" *ngIf="isEdit" [disabled]="form.untouched" (click)="handleUpdate(form)">
             Update
         </button>
 
-        <button type="button" class="btn btn--green" *ngIf="!isEdit" (click)="handleDelete()">
+        <button type="button" class="btn btn--green" *ngIf="isEdit" (click)="handleDelete()">
             Delete
         </button>
 
@@ -142,7 +142,7 @@ export class DonutFormComponent {
     @Output() delete = new EventEmitter<Donut>();
 
     icons: string[] = [
-        'caramel-swril',
+        'caramel-swirl',
         'glazed-fudge',
         'just-chocolate',
         'sour-supreme',
